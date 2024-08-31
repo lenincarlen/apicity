@@ -1,31 +1,27 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { IsString, IsNumber, IsBoolean } from 'class-validator';
 
-@Entity()
-export class Colegio {
-  @PrimaryGeneratedColumn()
-  IDColegio: number;
-
-  @Column()
+export class CreateColegioDto {
+  @IsString()
   CodigoColegio: string;
 
-  @Column()
+  @IsNumber()
   IDMunicipio: number;
 
-  @Column()
+  @IsString()
   Descripcion: string;
 
-  @Column()
+  @IsNumber()
   IDRecinto: number;
 
-  @Column()
+  @IsBoolean()
   TieneCupo: boolean;
 
-  @Column()
+  @IsNumber()
   CantidadInscritos: number;
 
-  @Column()
+  @IsNumber()
   CantidadReservada: number;
 
-  @Column()
+  @IsNumber()
   RegID: number;
 }

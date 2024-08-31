@@ -1,26 +1,35 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Municipio } from './entities/municipio.entity';
 import { CreateMunicipioDto } from './dto/create-municipio.dto';
 import { UpdateMunicipioDto } from './dto/update-municipio.dto';
 
 @Injectable()
 export class MunicipioService {
-  create(createMunicipioDto: CreateMunicipioDto) {
-    return 'This action adds a new municipio';
+  constructor(
+    @InjectRepository(Municipio)
+    private municipioRepository: Repository<Municipio>,
+  ) {}
+  async create(createMunicipioDto: CreateMunicipioDto) {
+    return await this.municipioRepository.find();
   }
 
-  findAll() {
-    return `This action returns all municipio`;
+  async findAll(): Promise<Municipio[]> {
+    return await this.municipioRepository.find(); 
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} municipio`;
+  async findOne(id: number): Promise<Municipio> {
+    return await this.municipioRepository.findOne({ where: { ID: id } });
+  }
+ 
+
+  async update(id: number, updateMunicipioDto: UpdateMunicipioDto): Promise<Municipio | null> {
+    await this.municipioRepository.update(id, updateMunicipioDto);
+    return this.findOne(id);
   }
 
-  update(id: number, updateMunicipioDto: UpdateMunicipioDto) {
-    return `This action updates a #${id} municipio`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} municipio`;
+  async remove(id: number): Promise<void> {
+    await this.municipioRepository.delete(id);
   }
 }

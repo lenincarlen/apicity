@@ -1,25 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { IsString, IsNumber } from 'class-validator';
 
-@Entity()
-export class SectorParaje {
-  @PrimaryGeneratedColumn()
-  ID: number;
-
-  @Column()
+export class CreateSectorParajeDto {
+  @IsNumber()
   IDCiudadSeccion: number;
 
-  @Column()
+  @IsString()
   CodigoSector: string;
 
-  @Column()
+  @IsString()
   Descripcion: string;
 
-  @Column()
+  @IsString()
   Oficio: string;
 
-  @Column()
+  @IsString()
   Estatus: string;
 
-  @Column()
+  @IsNumber()
   RegID: number;
 }

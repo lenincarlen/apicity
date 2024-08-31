@@ -1,46 +1,48 @@
+import { IsString, IsNumber } from 'class-validator';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class Recinto {
+
   @PrimaryGeneratedColumn()
   ID: number;
-
-  @Column()
+  
+  @IsString()
   CodigoRecinto: string;
 
-  @Column()
+  @IsString()
   Descripcion: string;
 
-  @Column()
+  @IsString()
   Direccion: string;
 
-  @Column()
+  @IsNumber()
   IDSectorParaje: number;
 
-  @Column()
+  @IsNumber()
   IDCircunscripcion: number;
 
-  @Column()
+  @IsNumber()
   IDBarrio: number;
 
-  @Column()
+  @IsNumber()
   CapacidadRecinto: number;
 
-  @Column()
+  @IsString()
   Oficio: string;
 
-  @Column()
+  @IsString()
   Estatus: string;
 
-  @Column()
+  @IsString()
   DescripcionLarga: string;
 
-  @Column()
+  @IsString()
   DireccionLarga: string;
 
-  @Column()
+  @IsString()
   Codigo: string;
 
-  @Column()
+  @IsNumber()
   RegID: number;
 }

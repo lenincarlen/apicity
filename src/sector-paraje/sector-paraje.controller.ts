@@ -3,7 +3,7 @@ import { SectorParajeService } from './sector-paraje.service';
 import { CreateSectorParajeDto } from './dto/create-sector-paraje.dto';
 import { UpdateSectorParajeDto } from './dto/update-sector-paraje.dto';
 
-@Controller('sector-paraje')
+@Controller('/api/v1/sector-paraje')
 export class SectorParajeController {
   constructor(private readonly sectorParajeService: SectorParajeService) {}
 

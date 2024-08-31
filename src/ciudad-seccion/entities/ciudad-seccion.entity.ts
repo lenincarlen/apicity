@@ -1,40 +1,36 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { IsString, IsNumber, IsDate } from 'class-validator';
 
-@Entity()
-export class CiudadSeccion {
-  @PrimaryGeneratedColumn()
-  ID: number;
-
-  @Column()
+export class CiudadSeccionDto {
+  @IsNumber()
   IDMunicipio: number;
 
-  @Column()
+  @IsNumber()
   IDDistritoMunicipal: number;
 
-  @Column()
+  @IsString()
   CodigoCiudad: string;
 
-  @Column()
+  @IsString()
   Descripcion: string;
 
-  @Column()
+  @IsString()
   Oficio: string;
 
-  @Column()
+  @IsString()
   Estatus: string;
 
-  @Column()
+  @IsNumber()
   IDUsuarioCreacion: number;
 
-  @Column()
+  @IsDate()
   FechaCreacion: Date;
 
-  @Column()
+  @IsNumber()
   IDUsuarioModificacion: number;
 
-  @Column()
+  @IsDate()
   FechaModificacion: Date;
 
-  @Column()
+  @IsNumber()
   RegID: number;
 }

@@ -21,7 +21,7 @@ export class CircunscripcionService {
   }
 
   async findOne(id: number): Promise<Circunscripcion> {
-    return await this.circunscripcionRepository.findOneBy({ ID: id });
+    return await this.circunscripcionRepository.findOne({ where: { ID: id } });
   }
 
   async update(id: number, updateCircunscripcionDto: Partial<CreateCircunscripcionDto>): Promise<Circunscripcion> {

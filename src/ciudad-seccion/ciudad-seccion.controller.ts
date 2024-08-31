@@ -3,7 +3,7 @@ import { CiudadSeccionService } from './ciudad-seccion.service';
 import { CreateCiudadSeccionDto } from './dto/create-ciudad-seccion.dto';
 import { UpdateCiudadSeccionDto } from './dto/update-ciudad-seccion.dto';
 
-@Controller('ciudad-seccion')
+@Controller('/api/v1/apiciudadseccion')
 export class CiudadSeccionController {
   constructor(private readonly ciudadSeccionService: CiudadSeccionService) {}
 

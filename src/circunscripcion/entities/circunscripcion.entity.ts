@@ -1,19 +1,20 @@
+import { IsString, IsNumber } from 'class-validator';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class Circunscripcion {
   @PrimaryGeneratedColumn()
   ID: number;
-
-  @Column()
+  
+  @IsNumber()
   IDProvincia: number;
 
-  @Column()
+  @IsString()
   CodigoCircunscripcion: string;
 
-  @Column()
+  @IsString()
   Circunscripcion: string;
 
-  @Column()
+  @IsNumber()
   RegID: number;
 }
