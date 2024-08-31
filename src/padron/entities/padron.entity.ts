@@ -1,9 +1,13 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Provincia } from 'src/provincia/entities/provincia.entity';
+import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { IsNotEmpty } from 'class-validator';
 
 @Entity()
 export class Padron {
   @PrimaryColumn()
+  @IsNotEmpty({ message: 'La cédula no puede estar vacía' })
   Cedula: string;
+
 
   @Column()
   Nombres: string;
@@ -37,6 +41,10 @@ export class Padron {
 
   @Column()
   IdProvincia: number;
+
+  @ManyToOne(() => Provincia)
+  @JoinColumn({ name: 'IdProvincia' })
+  provincia: Provincia;
 
   @Column({ nullable: true })  // Permitir null si es necesario
   IDMunicipioResidencia: number;

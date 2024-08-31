@@ -5,6 +5,13 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
 import { PadronModule } from './padron/padron.module';
+import { ProvinciaModule } from './provincia/provincia.module';
+import { RecintoModule } from './recinto/recinto.module';
+import { SectorParajeModule } from './sector-paraje/sector-paraje.module';
+import { MunicipioModule } from './municipio/municipio.module';
+import { ColegioModule } from './colegio/colegio.module';
+import { CiudadSeccionModule } from './ciudad-seccion/ciudad-seccion.module';
+import { CircunscripcionModule } from './circunscripcion/circunscripcion.module';
 
 @Module({
   imports: [
@@ -23,8 +30,16 @@ import { PadronModule } from './padron/padron.module';
   
   UsersModule,
 
-  
-  PadronModule],
+  RecintoModule,
+  SectorParajeModule,
+  MunicipioModule,
+  ColegioModule,
+  CiudadSeccionModule,
+  PadronModule,
+  ProvinciaModule,
+ CircunscripcionModule,
+
+],
   controllers: [AppController],
   providers: [AppService],
 })
