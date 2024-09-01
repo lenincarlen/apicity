@@ -19,13 +19,24 @@ import { CircunscripcionModule } from './circunscripcion/circunscripcion.module'
       type: 'mysql',
       host: 'localhost', // Elimina el puerto de aquí
       port: 3306, // Este es el lugar correcto para el puerto
-      username: 'apiDB',
+      username: 'padron_db',
       password: '12345678',
-      database: 'apiDB',
+      database: 'padron_db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
     
-    }),
+    // }),
+    // TypeOrmModule.forRoot({
+    //   name: 'appConnection',
+    //   type: 'mysql',
+    //   host: 'localhost',
+    //   port: 3306,
+    //   username: 'user',
+    //   password: 'password',
+    //   database: 'app_db',
+    //   entities: [User, Subscription, Role, /* ... */],
+    //   synchronize: true,
+     }),
 
   
   UsersModule,

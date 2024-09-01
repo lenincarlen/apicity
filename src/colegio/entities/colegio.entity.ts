@@ -1,6 +1,13 @@
-import { IsString, IsNumber, IsBoolean } from 'class-validator';
+import { IsString, IsNumber,IsNotEmpty, IsBoolean } from 'class-validator';
+ 
+import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 
-export class CreateColegioDto {
+export class Colegio {
+
+  @PrimaryColumn()
+  IDColegio: number;
+
+
   @IsString()
   CodigoColegio: string;
 

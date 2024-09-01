@@ -1,4 +1,3 @@
-import { IsString, IsNumber, IsDate, IsOptional } from 'class-validator';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
@@ -6,37 +5,36 @@ export class Municipio {
   @PrimaryGeneratedColumn()
   ID: number;
 
-  @IsString()
+  @Column()
   Descripcion: string;
 
-  @IsNumber()
+  @Column()
   IDProvincia: number;
 
-  @IsOptional()
-  @IsNumber()
-  IDMunicipioPadre?: number;
+  @Column({ nullable: true })
+  IDMunicipioPadre: number;
 
-  @IsString()
+  @Column()
   Oficio: string;
 
-  @IsString()
+  @Column()
   Estatus: string;
 
-  @IsString()
+  @Column()
   DM: string;
 
-  @IsNumber()
+  @Column()
   IDUsuarioCreacion: number;
 
-  @IsDate()
+  @Column()
   FechaCreacion: Date;
 
-  @IsNumber()
+  @Column()
   IDUsuarioModificacion: number;
 
-  @IsDate()
+  @Column()
   FechaModificacion: Date;
 
-  @IsNumber()
+  @Column()
   RegID: number;
 }

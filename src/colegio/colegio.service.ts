@@ -1,26 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { CreateColegioDto } from './dto/create-colegio.dto';
-import { UpdateColegioDto } from './dto/update-colegio.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Colegio } from './entities/colegio.entity';
 
 @Injectable()
 export class ColegioService {
-  create(createColegioDto: CreateColegioDto) {
-    return 'This action adds a new colegio';
+  constructor(
+    @InjectRepository(Colegio)
+    private colegioRepository: Repository<Colegio>,
+  ) {}
+
+  async findAll(): Promise<Colegio[]> {
+    return await this.colegioRepository.find();
   }
 
-  findAll() {
-    return `This action returns all colegio`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} colegio`;
-  }
-
-  update(id: number, updateColegioDto: UpdateColegioDto) {
-    return `This action updates a #${id} colegio`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} colegio`;
+  async findOne(id: number): Promise<Colegio | undefined> {
+    return await this.colegioRepository.findOne({ where: { IDColegio: id } });
   }
 }
